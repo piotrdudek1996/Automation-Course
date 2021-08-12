@@ -6,7 +6,7 @@ const str3 = ' Ale super, ja też.';
 console.log(str+str2+str3);
 let number1 = 4;
 let number2 = 7;
-let bigInt3 = 56456456546464^5;
+let bigInt3 = 56456456546464343432n;
 let number4 = 324424242;
 let number5 = 10;
 let number6 = 6764;
@@ -15,7 +15,7 @@ console.log(number1+number2);
 let result = number2 * number1;
 console.log(result);
 console.log(typeof result);
-console.log(bigInt3/number6); // wywala tu dziwny wynik na minusie -> dlaczego? za duże liczby?
+console.log(bigInt3/number6); 
 console.log(number1+number2*number5-number7); 
 
 
