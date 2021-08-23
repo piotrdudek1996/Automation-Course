@@ -118,7 +118,7 @@ let firstAndLast = function(a) {
         return console.log(a);
     }
     else { 
-    
+    a=a.toString();
     let b = a[0];
     let c = a[a.length-1];
     let d = parseInt(b,10);
