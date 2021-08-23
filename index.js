@@ -118,7 +118,7 @@ let firstAndLast = function(a) {
         return console.log(a);
     }
     else { 
-    
+    a=a.toString();
     let b = a[0];
     let c = a[a.length-1];
     let d = parseInt(b,10);
@@ -133,6 +133,7 @@ firstAndLast("19");
 firstAndLast("8");
 firstAndLast("78965");
 firstAndLast("-1");
+firstAndLast(56);
 
 // Lekcja 3 Zadanie 4
 let sumParz = function(tabel) {
