@@ -84,3 +84,87 @@ calc(7,3,'/');
 calc(9,8,'*');
 calc(9,7,'f');
 calc(8,5,4);
+
+// Lekcja 3 Zadanie 1
+let odwroc =function(str) {
+    let str2 = "";
+    for (let i = str.length - 1; i >= 0; i--) {
+        str2 = str2 + str[i];
+    }
+    console.log(str2);
+    return str2;
+}
+
+odwroc('hello');
+odwroc("Trytytka");
+
+// Lekcja 3 Zadanie 2
+let usunZnak = function(a,b) {
+    let c= a.replaceAll(b,"");
+    console.log(c);
+}
+
+usunZnak("Hello World","l");
+usunZnak("Ala ma psa","a");
+
+// Lekcja 3 Zadanie 3
+
+let firstAndLast = function(a) {
+    if (a<0) {
+         return console.log("Podana wartość ma być dodatnia");
+
+    }
+    if (a<10) {
+        return console.log(a);
+    }
+    else { 
+    a=a.toString();
+    let b = a[0];
+    let c = a[a.length-1];
+    let d = parseInt(b,10);
+    let e = parseInt(c,10);
+    let result = d +e; 
+    console.log(result);
+    return result;
+    }
+}
+firstAndLast("514");
+firstAndLast("19");
+firstAndLast("8");
+firstAndLast("78965");
+firstAndLast("-1");
+
+// Lekcja 3 Zadanie 4
+let sumParz = function(tabel) {
+    let sum =0;
+    for (let i=0; i<tabel.length; i++) {
+        if (tabel[i] % 2 ===0) {
+            sum+= tabel[i];
+            
+        }
+    } console.log(sum);
+}
+sumParz([0,1,3,5,7,2,6,4]);
+sumParz([11,58,63,1524,19,59,98,131]);
+
+// Lekcja 3 Zadanie 5
+let isFirst =function(liczba) {
+    if (liczba ===0 || liczba===1) {
+        return console.log(false);
+    }
+    if (liczba===2) return console.log(true);
+    else {
+        for (let i= 2; i<liczba; i++) {
+            if(liczba%i ===0){
+                 return console.log(false);
+            }
+        }
+        return console.log(true);
+    }
+
+}
+
+isFirst(11);
+isFirst(69);
+isFirst(111);
+isFirst(73);
