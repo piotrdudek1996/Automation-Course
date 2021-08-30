@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+ <meta charset="utf-8">
+ <title> Calculator </title>
+</head>
+<body>
+<table>
+ <input class = "display-box" type = "text" id = "result" disabled />
+ <input class = "button" type = "button" value = "OFF" onclick = "wyczysc()"; />
+    <tr>
+ <td><input class = "button" type = "button" value = "1" onclick = "wyswietl('1')" /> </td>
+ <td><input class = "button" type = "button" value = "2" onclick = "wyswietl('2')" /> </td>
+ <td><input class = "button" type = "button" value = "3" onclick = "wyswietl('3')" /></td>
+ <td><button onclick="calc('+')">+</button></td>
+    </tr>
+    <tr>
+ <td><input class = "button" type = "button" value = "4" onclick = "wyswietl('4')" /></td>
+ <td><input class = "button" type = "button" value = "5" onclick = "wyswietl('5')" /></td>
+ <td><input class = "button" type = "button" value = "6" onclick = "wyswietl('6')" /></td>
+ <td><button onclick="calc('-')">-</button></td>
+    <tr>
+    </tr>
+ <td><input class = "button" type = "button" value = "7" onclick = "wyswietl('7')" /></td>
+ <td><input class = "button" type = "button" value = "8" onclick = "wyswietl('8')" /></td>
+ <td><input class = "button" type = "button" value = "9" onclick = "wyswietl('9')" /></td>
+ <td><button onclick="calc('*')">*</button></td>
+ <tr>
+ <td><input class = "button" type = "button" value = "0" onclick = "wyswietl('0')" /></td>
+
+ <td><button onclick="calc('/')">/</button></td>
+ <td><button onclick="calc('x^y')">x^y</button></td>
+ <td><button onclick="calc('x^2')">x^2</button></td>
+ </tr>
+ <tr>
+ <td><button onclick="calc('sq2')">sq2</button></td>
+ <td><button onclick="calc('=')">=</button></td>
+ </tr>
+</table>
+<!--
+<input id="calculatorInput" type="text">
+<button onclick="calc('+')">+</button>
+<button onclick="calc('-')">-</button>
+<button onclick="calc('*')">*</button>
+<button onclick="calc('/')">/</button>
+<button onclick="calc('=')">=</button>
+<button onclick="calc('+/-')">+/-</button>
+<button onclick="calc('x^2')">x^2</button>
+<button onclick="calc('sqrt2')">sqrt2</button>
+<button onclick="calc('%')">%</button> -->
+<script src="calculator.js"></script>
+</body>
+</html>
