@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="panels.css"> 
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+</head>
+<body>
+    <div class="panel active" id="panel1">
+        <h2 class="important">FAKTUROWNIA</h1>
+        <h2 class="fst-italic">Miejsce dla ludzi co mają faktury*</h1>
+        <h3 class="fst-italic">Panel Logowania</h1>
+        <input class="input-group-text" id="logowanieInput" type="text" placeholder="login"> <br>
+        <input class="input-group-text" id="hasloLogInput" type="password" placeholder="hasło"> <br>
+        <button class="btn btn-success" id="buttonLogowanie">Zaloguj</button>
+        <button class="btn btn-info" id="buttonRejestracjaLog">Przejdż do rejestracji</button> <br> <br> <br> <br>
+        <h6 class="fst-italic">*Może być przeznaczone również dla ludzi co nie mają faktur, ale to bez sensu bo tutaj się wrzuca faktury</h7>
+    </div>
+    <div class="panel " id="panel2">
+        <h2 class="important">FAKTUROWNIA</h1>
+        <h2 class="fst-italic">Miejsce dla ludzi co mają faktury*</h1>
+        <h3 class="fst-italic">Registration</h2>
+        <input class="input-group-text" id="regLogowanieInput" type="text" placeholder="login"> <br>
+        <input class="input-group-text" id="regHasloInput" type="password" placeholder="hasło"> <br>
+        <button class="btn btn-success" id="buttonRejestracja">Zarejestruj</button>
+        <button class="btn btn-info" id="powrot">Powrót do Logowania</button><br> <br> <br> <br>
+        <h6 class="fst-italic">*Może być przeznaczone również dla ludzi co nie mają faktur, ale to bez sensu bo tutaj się wrzuca faktury</h7>
+    </div>
+    <div class="panel " id="panel3">
+        <h2 class="important">FAKTUROWNIA</h1>
+        <h2 class="fst-italic">Miejsce dla ludzi co mają faktury*</h1>
+        
+        <h4 class="fst-italic">Numer Faktury</h4>
+        <input class="input-group-text" id="numerFaktury" type="text"> <br>
+        <h4 class="fst-italic">Opis Faktury</h4>
+        <input class="input-group-text" id="opisFaktury" type="text"> <br>
+        <h4 class="fst-italic">Cena na Fakturze</h4>
+        <input class="input-group-text" id="cenaFaktury" type="text"> <br>
+        <h4 class="fst-italic">Numer NIP</h4>
+        <input class="input-group-text" id="numberNIP" type="text"> <br>
+        <button class="btn btn-success" id="dodajFakture">Dodaj Fakturę</button> <br>
+        <button class="btn btn-info" id="wyloguj">Wyloguj</button> <br>
+        <h3 class="important">Twoje Faktury</h3><br>
+        <div id="content"></div>
+
+    </div>
+    <script src="panels.js"></script>
+</body>
+</html>
