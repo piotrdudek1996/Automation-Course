@@ -173,21 +173,24 @@ dodaj.addEventListener('click', () => {
     
         
 
-        render();
+     //   render();
     
     let s4 = () => {
         return Math.floor((1 + Math.random()) * 0x10000)
             .toString(16)
             .substring(1);
       }
+
     let id = s4();
-    const post = new Post(fakturaNumber, fakturaOpis,fakturaPrice,fakturaNIP, id);
+
+    const post = new Post (fakturaNumber, fakturaOpis,fakturaPrice,fakturaNIP, id);
     fakturaList.push(post);
+    
+    localStorage.setItem('invoices', JSON.stringify(fakturaList));
 
-
-    a =[];
-    a.push(new Post (fakturaNumber, fakturaOpis,fakturaPrice,fakturaNIP, id));
-    localStorage.setItem('invoices', JSON.stringify(a));
+    // a =[];
+    // a.push(new Post (fakturaNumber, fakturaOpis,fakturaPrice,fakturaNIP, id));
+    // localStorage.setItem('invoices', JSON.stringify(a));
 
 
 
@@ -195,12 +198,23 @@ dodaj.addEventListener('click', () => {
 });
 
 function render() {
+
+    //debugger
     const contentElemnt = document.getElementById('content');
     contentElemnt.innerHTML = '';
-    const get = JSON.parse(localStorage.getItem('invoices'));
+
+    let get = JSON.parse(localStorage.getItem('invoices'));
+
+    if (get == null) {
+        get = [];
+    }
+
+    get = get.map((x) => {
+        return new Post(x.fakturaNumber, x.fakturaOpis, x.fakturaPrice, x.fakturaNIP, x.id);
+    })
     
-    for(let i=0; i< fakturaList.length; i++) {
-        const html = fakturaList[i].generateHTML();
+    for(let i=0; i< get.length; i++) {
+        const html = get[i].generateHTML();
         contentElemnt.appendChild(html);
     }
 }
@@ -239,18 +253,40 @@ class Post {
         
         
         deleteBtn.addEventListener('click', () => {
-            for(let i=0; i< fakturaList.length; i++) {
-                if (this.id === fakturaList[i].id) {
-                    fakturaList.splice(i, 1);
+            // debugger
+
+            const deleteInvoice = JSON.parse(localStorage.getItem('invoices'));
+
+            for(let i=0; i< deleteInvoice.length; i++) {
+                if (this.id == deleteInvoice[i].id) {
+                    deleteInvoice.splice(i, 1);
                     
+                    localStorage.setItem('invoices', JSON.stringify(deleteInvoice));
                     
                     return render();
                 }
             }
         })
-
+        
 
        return container;
        
     }
+}
+
+function closeBrowser () {
+
+
+    const activePanel = document.getElementsByClassName('active')[0].id;
+
+
+    localStorage.setItem('session', activePanel);
+
+}
+
+if (localStorage.getItem('session') == 'panel2') {
+    activePanel(1)
+} else if (localStorage.getItem('session') == 'panel3') {
+    activePanel(2);
+    render ();
 }
