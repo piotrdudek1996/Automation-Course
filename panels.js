@@ -169,8 +169,11 @@ dodaj.addEventListener('click', () => {
 
     const fakturaNIPInput = document.getElementById('numberNIP');
     const fakturaNIP = fakturaNIPInput.value;
-
-    
+   // window.localStorage.setItem('Invoices',);
+    let fakturaList = JSON.parse(localStorage.getItem('invoices'));
+    if (fakturaList == null) {
+        fakturaList =[];
+    }
         
 
      //   render();
@@ -187,7 +190,6 @@ dodaj.addEventListener('click', () => {
     fakturaList.push(post);
     
     localStorage.setItem('invoices', JSON.stringify(fakturaList));
-
     // a =[];
     // a.push(new Post (fakturaNumber, fakturaOpis,fakturaPrice,fakturaNIP, id));
     // localStorage.setItem('invoices', JSON.stringify(a));
@@ -199,16 +201,15 @@ dodaj.addEventListener('click', () => {
 
 function render() {
 
-    //debugger
+   // debugger
+    let get = JSON.parse(localStorage.getItem('invoices'));
     const contentElemnt = document.getElementById('content');
     contentElemnt.innerHTML = '';
-
-    let get = JSON.parse(localStorage.getItem('invoices'));
+    
 
     if (get == null) {
         get = [];
     }
-
     get = get.map((x) => {
         return new Post(x.fakturaNumber, x.fakturaOpis, x.fakturaPrice, x.fakturaNIP, x.id);
     })
@@ -226,7 +227,6 @@ class Post {
         this.fakturaOpis = fakturaOpis;
         this.fakturaPrice = fakturaPrice;
         this.fakturaNIP = fakturaNIP;
-        this.date = new Date();
         this.id = id;
     }
 
@@ -236,22 +236,17 @@ class Post {
         const bottomP = document.createElement('p');
         const bottomPP = document.createElement('p');
         const bottomPPP = document.createElement('p');
-        const bottomPPPP = document.createElement('p');
         const deleteBtn = document.createElement('button');
         mainP.innerText = "Numer Faktury: "+this.fakturaNumber;
         bottomP.innerText = "Opis Faktury: "+this.fakturaOpis; 
         bottomPP.innerText = "Cena: "+  this.fakturaPrice;
         bottomPPP.innerText = "NIP: "+  this.fakturaNIP;
-        bottomPPPP.innerText = "Data: "+  this.date;
         deleteBtn.innerText = 'delete';
         container.appendChild(mainP);
         container.appendChild(bottomP);
         container.appendChild(bottomPP);
         container.appendChild(bottomPPP);
-        container.appendChild(bottomPPPP);
         container.appendChild(deleteBtn);
-        
-        
         deleteBtn.addEventListener('click', () => {
             // debugger
 
@@ -262,7 +257,7 @@ class Post {
                     deleteInvoice.splice(i, 1);
                     
                     localStorage.setItem('invoices', JSON.stringify(deleteInvoice));
-                    
+                
                     return render();
                 }
             }
