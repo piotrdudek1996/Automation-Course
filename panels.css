@@ -1,0 +1,15 @@
+.panel{
+    width: auto;
+    height: auto;
+    padding: 80px;
+    margin: 100px;
+    display: none;
+    background: pink;
+    left: 100%;
+}
+.panel-hidden {
+    left: -400px;
+}
+.active {
+    display: block;
+}
